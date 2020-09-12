@@ -1,8 +1,7 @@
 ---
 
 language: python
-os: linux
-dist: bionic
+dist: focal
 services: docker
 
 env:
@@ -14,8 +13,17 @@ env:
     - MOLECULE_DISTRO: debian:10
     - MOLECULE_DISTRO: debian:9
 
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable'
+    packages:
+      - docker
+      - yamllint
+    update: true
+
 install:
-  - pip install molecule docker
+  - pip install --upgrade --upgrade-strategy eager -r requirements.txt
 
 before_script:
   - cd ../
