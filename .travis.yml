@@ -8,10 +8,10 @@ env:
   global:
     - ROLE_NAME: molecule_sandbox
   jobs:
-    - MOLECULE_DISTRO: ubuntu:bionic
-    - MOLECULE_DISTRO: ubuntu:xenial
-    - MOLECULE_DISTRO: debian:10
-    - MOLECULE_DISTRO: debian:9
+    - MOLECULE_DISTRO: ubuntu2004
+    - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: debian10
+    - MOLECULE_DISTRO: debian9
 
 addons:
   apt:
