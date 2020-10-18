@@ -4,6 +4,7 @@ galaxy_info:
   author: David Norman
   description: Learn how to use Molecule with Ansible to do test driven development of new roles.
 
+  github_branch: main
   issue_tracker_url: https://github.com/deekayen/ansible-role-molecule-sandbox/issues
 
   license: BSD
