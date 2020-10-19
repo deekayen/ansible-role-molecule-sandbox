@@ -10,13 +10,13 @@ jobs:
 
   test:
     name: Molecule
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         distro:
           - debian9
           - debian10
-          - ubuntu1604
+          - ubuntu1804
           - ubuntu2004
 
     steps:
