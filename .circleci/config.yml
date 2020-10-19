@@ -14,9 +14,14 @@ jobs:
       - setup_remote_docker
 
       - run:
-          name: Install all dependencies with pipenv
+          name: Install python packages from requirements.txt.
           command: |
             pip install --upgrade --upgrade-strategy eager -r requirements.txt
+
+      - run:
+          name: Link repo folder to a proper galaxy alias.
+          command: |
+            cd ../ && ln -s ansible-role-molecule_sandbox deekayen.molecule_sandbox && cd ansible-role-molecule_sandbox
 
       - run:
           name: Run Molecule Testing CircleCI-locally with Docker
