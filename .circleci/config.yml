@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:latest
+
+    environment:
+      MOLECULE_DISTRO: debian10
+
+    working_directory: ~/ansible-role-molecule_sandbox
+
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      - run:
+          name: Install all dependencies with pipenv
+          command: |
+            pip install --upgrade --upgrade-strategy eager -r requirements.txt
+
+      - run:
+          name: Run Molecule Testing CircleCI-locally with Docker
+          command: |
+            pipenv run molecule test
+
+workflows:
+  version: 2
+  on-commit:
+    jobs:
+      - build
+  weekly-schedule:
+    triggers:
+      - schedule:
+          cron: "55 17 * * 5"
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - build
