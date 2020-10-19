@@ -38,5 +38,4 @@ BSD
 Author Information
 ------------------
 
-David Norman
-https://github.com/sponsors/deekayen
+[David Norman (deekayen)](https://github.com/sponsors/deekayen)
