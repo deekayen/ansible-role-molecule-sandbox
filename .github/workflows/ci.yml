@@ -2,11 +2,11 @@
 name: CI
 'on':
   pull_request:
-  schedule:
-    - cron: '0 0 7 ? * FRI *'
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 0 7 ? * FRI *'
 
 jobs:
 
