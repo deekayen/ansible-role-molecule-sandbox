@@ -1,7 +1,7 @@
 Molecule Sandbox
 =========
 
-![CI](https://github.com/deekayen/ansible-role-molecule_sandbox/workflows/CI/badge.svg?branch=main) [![Build Status](https://travis-ci.org/deekayen/ansible-role-molecule_sandbox.svg?branch=main)](https://travis-ci.org/deekayen/ansible-role-molecule_sandbox)
+![CI](https://github.com/deekayen/ansible-role-molecule_sandbox/workflows/CI/badge.svg) [![Build Status](https://travis-ci.org/deekayen/ansible-role-molecule_sandbox.svg?branch=main)](https://travis-ci.org/deekayen/ansible-role-molecule_sandbox) ![CircleCI](https://circleci.com/gh/deekayen/ansible-role-molecule_sandbox.svg?style=shield)
 
 Simple role to try Molecule tests with Ansible.
 
