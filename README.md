@@ -8,7 +8,7 @@ Simple role to try Molecule tests with Ansible.
 Requirements
 ------------
 
-Travis CI
+A CI engine like Travis or GitHub Actions.
 
 Role Variables
 --------------
@@ -18,7 +18,7 @@ None.
 Dependencies
 ------------
 
-Travis CI
+None.
 
 Example Playbook
 ----------------
