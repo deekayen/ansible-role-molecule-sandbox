@@ -6,7 +6,7 @@ name: CI
     branches:
       - main
   schedule:
-    - cron: '0 0 7 ? * FRI *'
+    - cron: '* 7 * * 5'
 
 jobs:
 
