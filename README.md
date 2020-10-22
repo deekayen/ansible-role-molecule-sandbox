@@ -33,7 +33,7 @@ passed in as parameters) is always nice for users too:
 License
 -------
 
-BSD
+BSD-3-Clause
 
 Author Information
 ------------------
