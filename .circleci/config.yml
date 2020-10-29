@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/python:latest
+        auth:
+          username: deekayen
+          password: $DOCKERHUB_PASSWORD
 
     environment:
       MOLECULE_DISTRO: debian10
