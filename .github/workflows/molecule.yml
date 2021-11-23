@@ -1,29 +1,31 @@
 ---
-name: CI
+
+name: Molecule
 'on':
   pull_request:
   push:
     branches:
       - main
-  schedule:
-    - cron: '* 7 * * 5'
+
+defaults:
+  run:
+    working-directory: 'deekayen.molecule_sandbox'
 
 jobs:
-
-  test:
+  molecule:
     name: Molecule
     runs-on: ubuntu-20.04
     strategy:
       matrix:
         distro:
-          - debian9
           - debian10
-          - ubuntu1804
           - ubuntu2004
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
+        with:
+          path: 'deekayen.molecule_sandbox'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -31,10 +33,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip install --upgrade --upgrade-strategy eager -r requirements.txt
-
-      - name: Link repo folder to a proper galaxy alias.
-        run: cd ../ && ln -s ansible-role-molecule_sandbox deekayen.molecule_sandbox && cd ansible-role-molecule_sandbox
+        run: pip3 install ansible molecule[docker,lint] docker pytest-testinfra
 
       - name: Run Molecule tests.
         run: molecule test
