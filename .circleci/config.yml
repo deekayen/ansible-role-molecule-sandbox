@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Install python packages from requirements.txt.
           command: |
-            pip install --upgrade --upgrade-strategy eager -r requirements.txt
+            pip3 install ansible molecule[docker,lint] docker pytest-testinfra
 
       - run:
           name: Link repo folder to a proper galaxy alias.
