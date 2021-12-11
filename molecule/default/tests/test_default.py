@@ -67,4 +67,3 @@ def test_apache2_connection(host):
         code = response.status
 
         assert code == 200
-
