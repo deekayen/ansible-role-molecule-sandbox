@@ -57,6 +57,7 @@ def test_apache2_port(host):
 
 
 def test_apache2_connection(host):
+    ansible_vars = host.ansible.get_variables()
     addr = host.addr(ansible_vars["inventory_hostname"])
 
     connection = http.client.HTTPConnection(addr.ipv4_addresses[0], 80)
