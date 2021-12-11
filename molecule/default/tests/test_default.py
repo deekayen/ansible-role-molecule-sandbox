@@ -60,10 +60,9 @@ def test_apache2_connection(host):
     ansible_vars = host.ansible.get_variables()
     addr = host.addr(ansible_vars["inventory_hostname"])
 
-    for ip in addr.ipv4_addresses:
-        connection = http.client.HTTPConnection(ip, 80, timeout=5)
-        connection.request("GET", "/index.html")
-        response = connection.getresponse()
-        code = response.status
+    connection = http.client.HTTPConnection(addr.name, 80, timeout=5)
+    connection.request("GET", "/index.html")
+    response = connection.getresponse()
+    code = response.status
 
-        assert code == 200
+    assert code == 200
