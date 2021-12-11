@@ -57,9 +57,9 @@ def test_apache2_port(host):
 
 
 def test_apache2_connection(host):
-    connection = http.client.HTTPConnection("ddg.gg", 80, timeout=5)
-    connection.request("GET", "/")
+    connection = http.client.HTTPConnection(host.addr(ansible_vars["inventory_hostname"]), 80, timeout=5)
+    connection.request("GET", "/index.html")
     response = connection.getresponse()
     code = response.status
 
-    assert code == 301
+    assert code == 200
