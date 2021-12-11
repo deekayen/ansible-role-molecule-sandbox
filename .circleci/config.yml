@@ -12,39 +12,24 @@ jobs:
     environment:
       MOLECULE_DISTRO: debian10
 
-    working_directory: ~/ansible-role-molecule_sandbox
+    working_directory: ~/deekayen.molecule_sandbox
 
     steps:
       - checkout
       - setup_remote_docker
 
       - run:
-          name: Install python packages from requirements.txt.
+          name: Install python test dependencies from requirements.txt.
           command: |
-            pip3 install ansible molecule[docker,lint] docker pytest-testinfra
+            pip3 install -r requirements.txt
 
       - run:
-          name: Link repo folder to a proper galaxy alias.
-          command: |
-            cd ../ && ln -s ansible-role-molecule_sandbox deekayen.molecule_sandbox && cd ansible-role-molecule_sandbox
-
-      - run:
-          name: Run Molecule Testing CircleCI-locally with Docker
+          name: Run Molecule Testing CircleCI-locally with Docker.
           command: |
             pipenv run molecule test
 
 workflows:
   version: 2
   on-commit:
-    jobs:
-      - build
-  weekly-schedule:
-    triggers:
-      - schedule:
-          cron: "55 17 * * 5"
-          filters:
-            branches:
-              only:
-                - main
     jobs:
       - build

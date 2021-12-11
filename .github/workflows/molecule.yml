@@ -32,8 +32,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install test dependencies.
-        run: pip3 install ansible ansible-lint molecule[docker,lint] docker pytest-testinfra
+      - name: Install python test dependencies from requirements.txt.
+        run: pip3 install -r requirements.txt
 
       - name: Run Molecule tests.
         run: molecule test
